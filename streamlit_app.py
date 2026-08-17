@@ -203,7 +203,6 @@ st.markdown(
     <style>
     html, body, [class*="css"] {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
-        font-size: 26px !important;
         font-weight: 700 !important;
     }
 
@@ -213,13 +212,11 @@ st.markdown(
 
     h1, h2, h3, .stCaption, p, span, div, label {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
-        font-size: 26px !important;
         font-weight: 700 !important;
     }
 
     h1 {
         color: #4a3f2a !important;
-        font-size: 40px !important;
         transform: rotate(-1deg);
     }
 
@@ -254,7 +251,7 @@ st.markdown(
     }
 
     .card-label {
-        font-size: 20px;
+        font-size: 13px;
         letter-spacing: 3px;
         opacity: 0.6;
         margin-bottom: 10px;
@@ -265,7 +262,7 @@ st.markdown(
     }
 
     .card-word {
-        font-size: 100px;
+        font-size: 34px;
         font-weight: 700;
         margin-bottom: 18px;
         line-height: 1.3;
@@ -277,7 +274,7 @@ st.markdown(
     }
 
     .card-usage {
-        font-size: 26px;
+        font-size: 15px;
         font-weight: 700;
         background: #ffe3b3;
         color: #000000;
@@ -290,7 +287,7 @@ st.markdown(
     }
 
     .card-example {
-        font-size: 38px;
+        font-size: 18px;
         font-weight: 700;
         line-height: 1.7;
         color: #000000;
@@ -298,7 +295,7 @@ st.markdown(
     }
 
     .card-meaning {
-        font-size: 100px;
+        font-size: 28px;
         font-weight: 700;
         margin-bottom: 16px;
         color: #000000;
@@ -308,7 +305,6 @@ st.markdown(
         text-align: center;
         border-radius: 12px 16px 14px 18px / 16px 12px 18px 14px;
         padding: 20px 10px;
-        font-size: 26px;
         font-weight: 700;
         border: 3px solid #4a3f2a;
         transform: rotate(-1deg);
@@ -317,7 +313,6 @@ st.markdown(
     /* --- ボタン：手描き風の枠線 --- */
     .stButton > button {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
-        font-size: 26px !important;
         font-weight: 700 !important;
         border-radius: 10px 14px 12px 16px / 14px 10px 16px 12px !important;
         border: 3px solid #4a3f2a !important;
@@ -345,7 +340,6 @@ st.markdown(
     /* --- チェックボックス・キャプション文字 --- */
     .stCheckbox label, .stCaption, [data-testid="stCaptionContainer"] {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
-        font-size: 26px !important;
         font-weight: 700 !important;
         color: #4a3f2a !important;
     }
@@ -353,14 +347,12 @@ st.markdown(
     /* --- st.metric の数値・ラベル --- */
     [data-testid="stMetricValue"], [data-testid="stMetricLabel"] {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
-        font-size: 26px !important;
         font-weight: 700 !important;
         color: #4a3f2a !important;
     }
     /* --- サブタイトル文字（小さめ） --- */
     .subtitle-text {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
-        font-size: 15px !important;
         font-weight: 700 !important;
         color: #4a3f2a !important;
         opacity: 0.8;
@@ -558,3 +550,4 @@ else:
     if st.button("終了する", use_container_width=True):
         reset_all()
         st.rerun()
+        
