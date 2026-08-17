@@ -201,11 +201,33 @@ st.set_page_config(page_title="助動詞フラッシュカード", page_icon="�
 st.markdown(
     """
     <style>
-    .stApp {
-        background: linear-gradient(180deg, #f5f7fb 0%, #eef1f8 100%);
+    @import url('https://fonts.googleapis.com/css2?family=Yomogi&family=Klee+One:wght@400;600&family=Kalam:wght@400;700&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
     }
+
+    .stApp {
+        background-color: #faf6ec;
+        background-image:
+            linear-gradient(#e8e0cc 1px, transparent 1px),
+            linear-gradient(90deg, #e8e0cc 1px, transparent 1px);
+        background-size: 28px 28px;
+    }
+
+    h1, h2, h3, .stCaption, p, span, div, label {
+        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+    }
+
+    h1 {
+        color: #4a3f2a !important;
+        transform: rotate(-1deg);
+    }
+
+    /* --- フラッシュカード本体：手書きノート風 --- */
     .flash-card {
-        border-radius: 24px;
+        position: relative;
+        border-radius: 10px 14px 12px 16px / 14px 10px 16px 12px;
         padding: 48px 32px;
         min-height: 260px;
         display: flex;
@@ -213,60 +235,113 @@ st.markdown(
         align-items: center;
         justify-content: center;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(30, 41, 59, 0.15);
         margin-bottom: 28px;
-        transition: all 0.2s ease-in-out;
+        transform: rotate(-0.6deg);
+        box-shadow: 6px 8px 0px rgba(74, 63, 42, 0.15);
     }
+
     .front-card {
-        background: linear-gradient(135deg, #4f6df5 0%, #3a56d4 100%);
-        color: #ffffff;
-        border: 1px solid rgba(255,255,255,0.15);
+        background: #fffdf6;
+        color: #2e2a20;
+        border: 3px solid #4a3f2a;
+        transform: rotate(0.8deg);
     }
+
     .back-card {
-        background: linear-gradient(135deg, #ffffff 0%, #f3f5fb 100%);
-        color: #1e293b;
-        border: 2px solid #4f6df5;
+        background: #fff9e6;
+        color: #2e2a20;
+        border: 3px dashed #b5762c;
+        transform: rotate(-0.8deg);
     }
+
     .card-label {
-        font-size: 13px;
-        letter-spacing: 2px;
-        opacity: 0.75;
-        margin-bottom: 14px;
+        font-size: 15px;
+        letter-spacing: 3px;
+        opacity: 0.6;
+        margin-bottom: 10px;
         text-transform: uppercase;
         font-weight: 700;
+        border-bottom: 2px dashed #4a3f2a;
+        padding-bottom: 6px;
     }
+
     .card-word {
-        font-size: 34px;
-        font-weight: 800;
+        font-size: 36px;
+        font-weight: 700;
         margin-bottom: 18px;
         line-height: 1.3;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-color: #4a3f2a;
+        text-underline-offset: 6px;
     }
+
     .card-usage {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 600;
-        background: rgba(79, 109, 245, 0.12);
-        color: #3a56d4;
+        background: #ffe3b3;
+        color: #7a4a12;
         display: inline-block;
-        padding: 4px 14px;
+        padding: 4px 18px;
         border-radius: 999px;
         margin-bottom: 16px;
+        border: 2px dashed #b5762c;
+        transform: rotate(-2deg);
     }
+
     .card-example {
-        font-size: 18px;
-        line-height: 1.6;
-        opacity: 0.95;
+        font-size: 19px;
+        line-height: 1.7;
+        opacity: 0.9;
     }
+
     .card-meaning {
-        font-size: 28px;
-        font-weight: 800;
+        font-size: 30px;
+        font-weight: 700;
         margin-bottom: 16px;
-        color: #3a56d4;
+        color: #b5762c;
     }
+
     .stat-box {
         text-align: center;
-        border-radius: 16px;
+        border-radius: 12px 16px 14px 18px / 16px 12px 18px 14px;
         padding: 20px 10px;
         font-weight: 700;
+        border: 3px solid #4a3f2a;
+        transform: rotate(-1deg);
+    }
+
+    /* --- ボタン：手描き風の枠線 --- */
+    .stButton > button {
+        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-weight: 700;
+        border-radius: 10px 14px 12px 16px / 14px 10px 16px 12px !important;
+        border: 3px solid #4a3f2a !important;
+        background: #fffdf6 !important;
+        color: #2e2a20 !important;
+        box-shadow: 3px 4px 0px rgba(74, 63, 42, 0.25);
+        transition: transform 0.1s ease-in-out;
+    }
+    .stButton > button:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 6px 0px rgba(74, 63, 42, 0.25);
+        color: #b5762c !important;
+        border-color: #b5762c !important;
+    }
+    .stButton > button[kind="primary"] {
+        background: #ffe3b3 !important;
+        color: #7a4a12 !important;
+    }
+
+    /* --- 進捗バー --- */
+    .stProgress > div > div {
+        background-color: #b5762c !important;
+    }
+
+    /* --- チェックボックス・キャプション文字 --- */
+    .stCheckbox label, .stCaption, [data-testid="stCaptionContainer"] {
+        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        color: #4a3f2a !important;
     }
     </style>
     """,
@@ -344,7 +419,7 @@ elif st.session_state.finished:
     with col1:
         st.markdown(
             f"""
-            <div class="stat-box" style="background:#e7f6ec; color:#1a7a3d;">
+            <div class="stat-box" style="background:#eef7e6; color:#3d6b1f; border-color:#6b8f3f;">
                 <div style="font-size:36px;">✅ {st.session_state.good_count}</div>
                 <div>覚えた (Good)</div>
             </div>
@@ -354,7 +429,7 @@ elif st.session_state.finished:
     with col2:
         st.markdown(
             f"""
-            <div class="stat-box" style="background:#fdeeee; color:#c0392b;">
+            <div class="stat-box" style="background:#fdeee0; color:#a5471f; border-color:#c0602c;">
                 <div style="font-size:36px;">🔁 {st.session_state.review_count}</div>
                 <div>まだ不安 (Review)</div>
             </div>
@@ -451,4 +526,3 @@ else:
     stat_col1, stat_col2 = st.columns(2)
     stat_col1.metric("覚えた", st.session_state.good_count)
     stat_col2.metric("まだ不安", st.session_state.review_count)
-    
