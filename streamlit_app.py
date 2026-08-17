@@ -1,31 +1,454 @@
-# Streamlitライブラリをインポート
+import random
 import streamlit as st
 
-# ページ設定（タブに表示されるタイトル、表示幅）
-st.set_page_config(page_title="タイトル", layout="wide")
+# =========================================================
+# データ定義
+# =========================================================
+flashcards = [
+    # --- 助動詞 + have + PP 一覧 ---
+    {
+        "word": "must have done",
+        "usage": "過去のことへの確信",
+        "meaning": "～したに違いない",
+        "english_example": "She must have failed the exam.",
+        "japanese_example": "彼女は試験に合格しなかったに違いない。"
+    },
+    {
+        "word": "should have done / ought to have done",
+        "usage": "過去のことへの推量",
+        "meaning": "～したはずだ",
+        "english_example": "He should have arrived by now. / He ought to have arrived by now.",
+        "japanese_example": "彼は今ごろもう到着したはずだ。"
+    },
+    {
+        "word": "cannot have done",
+        "usage": "過去のことへの確信（否定）",
+        "meaning": "～したはずがない",
+        "english_example": "He cannot have said such a thing.",
+        "japanese_example": "彼がそんなことを言ったはずがない。"
+    },
+    {
+        "word": "couldn't have done",
+        "usage": "過去のことへの確信（否定）",
+        "meaning": "～したはずがない",
+        "english_example": "He couldn't have said such a thing.",
+        "japanese_example": "彼がそんなことを言ったはずがない。"
+    },
+    {
+        "word": "may have done",
+        "usage": "過去のことへの推量",
+        "meaning": "～したかもしれない",
+        "english_example": "He may have lost his way.",
+        "japanese_example": "彼は道に迷ったかもしれない。"
+    },
+    {
+        "word": "might have done",
+        "usage": "過去のことへの推量",
+        "meaning": "～したかもしれない",
+        "english_example": "He might have lost his way.",
+        "japanese_example": "彼は道に迷ったかもしれない。"
+    },
+    {
+        "word": "could have done",
+        "usage": "過去のことへの推量",
+        "meaning": "～したかもしれない",
+        "english_example": "He could have lost his way.",
+        "japanese_example": "彼は道に迷ったかもしれない。"
+    },
+    # --- 基本助動詞マスターシート ---
+    {
+        "word": "can",
+        "usage": "能力・可能",
+        "meaning": "～することができる",
+        "english_example": "She can play the piano.",
+        "japanese_example": "彼女はピアノが弾ける。"
+    },
+    {
+        "word": "can",
+        "usage": "許可",
+        "meaning": "～してもよい",
+        "english_example": "You can use my cell phone.",
+        "japanese_example": "私の携帯電話を使ってもいいですよ。"
+    },
+    {
+        "word": "can",
+        "usage": "依頼",
+        "meaning": "～してくれますか",
+        "english_example": "Can you open the door?",
+        "japanese_example": "ドアを開けてくれますか。"
+    },
+    {
+        "word": "can",
+        "usage": "推量（可能性）",
+        "meaning": "～はあり得る",
+        "english_example": "An accident can happen at any time.",
+        "japanese_example": "事故はいつでも起こり得る。"
+    },
+    {
+        "word": "can't",
+        "usage": "否定の推量",
+        "meaning": "～のはずがない",
+        "english_example": "The rumor can't be true.",
+        "japanese_example": "そのうわさが本当であるはずがない。"
+    },
+    {
+        "word": "may",
+        "usage": "許可",
+        "meaning": "～してもよい",
+        "english_example": "May I ask you a question?",
+        "japanese_example": "質問をしてもよろしいですか。"
+    },
+    {
+        "word": "may",
+        "usage": "推量",
+        "meaning": "～かもしれない",
+        "english_example": "He may be at home.",
+        "japanese_example": "彼は家にいるかもしれない。"
+    },
+    {
+        "word": "must",
+        "usage": "義務・必要",
+        "meaning": "～しなければならない",
+        "english_example": "You must get some sleep.",
+        "japanese_example": "あなたは少し寝ないといけません。"
+    },
+    {
+        "word": "must",
+        "usage": "推量（確信）",
+        "meaning": "～に違いない",
+        "english_example": "He must be tired.",
+        "japanese_example": "彼は疲れているに違いない。"
+    },
+    {
+        "word": "must not",
+        "usage": "禁止",
+        "meaning": "～してはいけない",
+        "english_example": "You must not take pictures here.",
+        "japanese_example": "ここで写真を撮ってはいけません。"
+    },
+    {
+        "word": "should (ought to)",
+        "usage": "義務・助言",
+        "meaning": "～すべきだ",
+        "english_example": "You should be more careful.",
+        "japanese_example": "君はもっと気を付けるべきだ。"
+    },
+    {
+        "word": "should (ought to)",
+        "usage": "推量",
+        "meaning": "～のはずだ",
+        "english_example": "They should arrive here soon.",
+        "japanese_example": "彼らはもうすぐここに着くはずだ。"
+    },
+    {
+        "word": "will",
+        "usage": "未来の予測",
+        "meaning": "～だろう",
+        "english_example": "It will rain this afternoon.",
+        "japanese_example": "今日の午後は雨が降るだろう。"
+    },
+    {
+        "word": "will",
+        "usage": "意志",
+        "meaning": "～するつもりだ",
+        "english_example": "I'll do my homework after dinner.",
+        "japanese_example": "私は夕食後に宿題をするつもりです。"
+    },
+    {
+        "word": "will / would",
+        "usage": "過去の習慣",
+        "meaning": "よく～したものだ",
+        "english_example": "We would often go to the movies.",
+        "japanese_example": "私たちはよく映画を見に行ったものだ。"
+    },
+    {
+        "word": "shall I ～?",
+        "usage": "申し出",
+        "meaning": "(私が)～しましょうか",
+        "english_example": "Shall I open the window?",
+        "japanese_example": "窓を開けましょうか。"
+    },
+    {
+        "word": "shall we ～?",
+        "usage": "提案",
+        "meaning": "(一緒に)～しませんか",
+        "english_example": "Shall we go to a movie tomorrow?",
+        "japanese_example": "明日、映画に行きませんか。"
+    },
+    {
+        "word": "used to",
+        "usage": "過去の習慣",
+        "meaning": "(以前は)～したものだ",
+        "english_example": "I used to walk to school with my friends.",
+        "japanese_example": "私は(以前は)友達と歩いて登校したものだ。"
+    },
+    {
+        "word": "had better",
+        "usage": "命令・忠告",
+        "meaning": "～しなさい，～するのがよい",
+        "english_example": "You had better see a doctor.",
+        "japanese_example": "医者に診てもらいなさい。"
+    }
+]
 
-# タイトルを設定
-st.title('Streamlitのサンプルアプリ')
+TOTAL = len(flashcards)
 
-# テキスト入力ボックスを作成し、ユーザーからの入力を受け取る
-user_input = st.text_input('あなたの名前を入力してください')
+# =========================================================
+# ページ設定 & CSS
+# =========================================================
+st.set_page_config(page_title="助動詞フラッシュカード", page_icon="🗂️", layout="centered")
 
-# ボタンを作成し、クリックされたらメッセージを表示
-if st.button('挨拶する'):
-    if user_input:  # 名前が入力されているかチェック
-        st.success(f'🌟 こんにちは、{user_input}さん! 🌟')  # メッセージをハイライト
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: linear-gradient(180deg, #f5f7fb 0%, #eef1f8 100%);
+    }
+    .flash-card {
+        border-radius: 24px;
+        padding: 48px 32px;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(30, 41, 59, 0.15);
+        margin-bottom: 28px;
+        transition: all 0.2s ease-in-out;
+    }
+    .front-card {
+        background: linear-gradient(135deg, #4f6df5 0%, #3a56d4 100%);
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.15);
+    }
+    .back-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f3f5fb 100%);
+        color: #1e293b;
+        border: 2px solid #4f6df5;
+    }
+    .card-label {
+        font-size: 13px;
+        letter-spacing: 2px;
+        opacity: 0.75;
+        margin-bottom: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    .card-word {
+        font-size: 34px;
+        font-weight: 800;
+        margin-bottom: 18px;
+        line-height: 1.3;
+    }
+    .card-usage {
+        font-size: 15px;
+        font-weight: 600;
+        background: rgba(79, 109, 245, 0.12);
+        color: #3a56d4;
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 999px;
+        margin-bottom: 16px;
+    }
+    .card-example {
+        font-size: 18px;
+        line-height: 1.6;
+        opacity: 0.95;
+    }
+    .card-meaning {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        color: #3a56d4;
+    }
+    .stat-box {
+        text-align: center;
+        border-radius: 16px;
+        padding: 20px 10px;
+        font-weight: 700;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# =========================================================
+# セッション状態の初期化
+# =========================================================
+def init_session():
+    if "started" not in st.session_state:
+        st.session_state.started = False
+    if "order" not in st.session_state:
+        st.session_state.order = list(range(TOTAL))
+    if "index" not in st.session_state:
+        st.session_state.index = 0
+    if "flipped" not in st.session_state:
+        st.session_state.flipped = False
+    if "good_count" not in st.session_state:
+        st.session_state.good_count = 0
+    if "review_count" not in st.session_state:
+        st.session_state.review_count = 0
+    if "review_words" not in st.session_state:
+        st.session_state.review_words = []
+    if "finished" not in st.session_state:
+        st.session_state.finished = False
+
+
+def reset_all():
+    st.session_state.started = False
+    st.session_state.order = list(range(TOTAL))
+    st.session_state.index = 0
+    st.session_state.flipped = False
+    st.session_state.good_count = 0
+    st.session_state.review_count = 0
+    st.session_state.review_words = []
+    st.session_state.finished = False
+
+
+init_session()
+
+st.title("🗂️ 英語 助動詞フラッシュカード")
+st.caption("助動詞・助動詞+have+PP の意味と用法をマスターしよう")
+
+# =========================================================
+# スタート画面
+# =========================================================
+if not st.session_state.started:
+    st.write("")
+    st.subheader("学習を始めましょう")
+    st.write(f"全 **{TOTAL}** 枚のカードが登録されています。")
+    shuffle_option = st.checkbox("カードの順番をシャッフルする", value=True)
+
+    if st.button("▶ 学習をスタート", type="primary", use_container_width=True):
+        order = list(range(TOTAL))
+        if shuffle_option:
+            random.shuffle(order)
+        st.session_state.order = order
+        st.session_state.index = 0
+        st.session_state.flipped = False
+        st.session_state.good_count = 0
+        st.session_state.review_count = 0
+        st.session_state.review_words = []
+        st.session_state.finished = False
+        st.session_state.started = True
+        st.rerun()
+
+# =========================================================
+# 結果画面
+# =========================================================
+elif st.session_state.finished:
+    st.success("🎉 全カードを学習しました！お疲れさまでした。")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            f"""
+            <div class="stat-box" style="background:#e7f6ec; color:#1a7a3d;">
+                <div style="font-size:36px;">✅ {st.session_state.good_count}</div>
+                <div>覚えた (Good)</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with col2:
+        st.markdown(
+            f"""
+            <div class="stat-box" style="background:#fdeeee; color:#c0392b;">
+                <div style="font-size:36px;">🔁 {st.session_state.review_count}</div>
+                <div>まだ不安 (Review)</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    st.write("")
+
+    if st.session_state.review_words:
+        st.subheader("📝 復習が必要なカード一覧")
+        for item in st.session_state.review_words:
+            st.markdown(f"- **{item['word']}** ： {item['meaning']}")
     else:
-        st.error('名前を入力してください。')  # エラーメッセージを表示
+        st.info("復習が必要なカードはありません。素晴らしい！")
 
-# スライダーを作成し、値を選択
-number = st.slider('好きな数字（10進数）を選んでください', 0, 100)
+    st.write("")
+    if st.button("🔄 最初からやり直す", type="primary", use_container_width=True):
+        reset_all()
+        st.rerun()
 
-# 補足メッセージ
-st.caption("十字キー（左右）でも調整できます。")
+# =========================================================
+# 学習画面
+# =========================================================
+else:
+    current_idx = st.session_state.order[st.session_state.index]
+    card = flashcards[current_idx]
 
-# 選択した数字を表示
-st.write(f'あなたが選んだ数字は「{number}」です。')
+    # 進捗バー
+    progress_num = st.session_state.index + 1
+    st.progress(progress_num / TOTAL)
+    st.caption(f"{progress_num} / {TOTAL} 問目")
 
-# 選択した数値を2進数に変換
-binary_representation = bin(number)[2:]  # 'bin'関数で2進数に変換し、先頭の'0b'を取り除く
-st.info(f'🔢 10進数の「{number}」を2進数で表現すると「{binary_representation}」になります。 🔢')  # 2進数の表示をハイライト
+    st.write("")
+
+    # カード表示
+    if not st.session_state.flipped:
+        st.markdown(
+            f"""
+            <div class="flash-card front-card">
+                <div class="card-label">Question</div>
+                <div class="card-word">{card['word']}</div>
+                <div class="card-example">{card['english_example']}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+            f"""
+            <div class="flash-card back-card">
+                <div class="card-label">Answer</div>
+                <div class="card-usage">{card['usage']}</div>
+                <div class="card-meaning">{card['meaning']}</div>
+                <div class="card-example">{card['japanese_example']}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # コントロールボタン
+    if not st.session_state.flipped:
+        if st.button("🔄 カードをめくる（裏返す）", type="primary", use_container_width=True):
+            st.session_state.flipped = True
+            st.rerun()
+    else:
+        st.write("この助動詞の意味、覚えていましたか？")
+        col_good, col_review = st.columns(2)
+
+        def go_to_next(is_good):
+            if is_good:
+                st.session_state.good_count += 1
+            else:
+                st.session_state.review_count += 1
+                st.session_state.review_words.append(card)
+
+            st.session_state.index += 1
+            st.session_state.flipped = False
+
+            if st.session_state.index >= TOTAL:
+                st.session_state.finished = True
+
+        with col_good:
+            if st.button("✅ 覚えた (Good)", use_container_width=True):
+                go_to_next(True)
+                st.rerun()
+        with col_review:
+            if st.button("🔁 まだ不安 (Review)", use_container_width=True):
+                go_to_next(False)
+                st.rerun()
+
+    st.write("")
+    st.divider()
+    stat_col1, stat_col2 = st.columns(2)
+    stat_col1.metric("覚えた", st.session_state.good_count)
+    stat_col2.metric("まだ不安", st.session_state.review_count)
+    
