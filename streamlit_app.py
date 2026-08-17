@@ -254,7 +254,7 @@ st.markdown(
     }
 
     .card-label {
-        font-size: 26px;
+        font-size: 18px;
         letter-spacing: 3px;
         opacity: 0.6;
         margin-bottom: 10px;
@@ -265,7 +265,7 @@ st.markdown(
     }
 
     .card-word {
-        font-size: 36px;
+        font-size: 48px;
         font-weight: 700;
         margin-bottom: 18px;
         line-height: 1.3;
@@ -298,7 +298,7 @@ st.markdown(
     }
 
     .card-meaning {
-        font-size: 30px;
+        font-size: 42px;
         font-weight: 700;
         margin-bottom: 16px;
         color: #000000;
@@ -357,6 +357,16 @@ st.markdown(
         font-weight: 700 !important;
         color: #4a3f2a !important;
     }
+    /* --- サブタイトル文字（小さめ） --- */
+    .subtitle-text {
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        color: #4a3f2a !important;
+        opacity: 0.8;
+        margin-top: -8px;
+        margin-bottom: 12px;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -398,7 +408,10 @@ def reset_all():
 init_session()
 
 st.title("英語 助動詞フラッシュカード")
-st.caption("助動詞・助動詞+have+PP の意味と用法をマスターしよう")
+st.markdown(
+    '<p class="subtitle-text">助動詞・助動詞+have+PP の意味と用法をマスターしよう</p>',
+    unsafe_allow_html=True,
+)
 
 # =========================================================
 # スタート画面
@@ -540,3 +553,8 @@ else:
     stat_col1, stat_col2 = st.columns(2)
     stat_col1.metric("覚えた", st.session_state.good_count)
     stat_col2.metric("まだ不安", st.session_state.review_count)
+
+    st.write("")
+    if st.button("終了する", use_container_width=True):
+        reset_all()
+        st.rerun()
