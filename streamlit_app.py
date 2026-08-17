@@ -21,12 +21,23 @@ flashcards = [
         "word": "should have done",
         "usage": "過去のことへの推量",
         "meaning": "～したはずだ",
-        "english_example": "He should have arrived by now.",
-        "japanese_example": "彼は今ごろもう到着したはずだ。",
+        "english_example": "He should have received my email yesterday.",
+        "japanese_example": "彼は昨日、私のメールを受け取ったはずだ。",
         "aux_en": "should have",
         "aux_ja": "はずだ",
-        "pp_en": "arrived",
-        "pp_ja": "到着した"
+        "pp_en": "received",
+        "pp_ja": "受け取った"
+    },
+    {
+        "word": "should have done",
+        "usage": "過去への後悔・非難",
+        "meaning": "～すべきだったのに（しなかった）",
+        "english_example": "I should have studied harder.",
+        "japanese_example": "もっと勉強しておくべきだった。",
+        "aux_en": "should have",
+        "aux_ja": "べきだった",
+        "pp_en": "studied",
+        "pp_ja": "勉強しておく"
     },
     {
         "word": "ought to have done",
@@ -631,11 +642,7 @@ else:
     else:
         st.write("この助動詞の意味、覚えていましたか？")
 
-        if st.button("🔄 表面に戻す（もう一度めくる）", use_container_width=True):
-            st.session_state.flipped = False
-            st.rerun()
-
-        col_good, col_review = st.columns(2)
+        col_flip, col_good, col_review = st.columns(3)
 
         def go_to_next(is_good):
             if is_good:
@@ -650,6 +657,10 @@ else:
             if st.session_state.index >= TOTAL:
                 st.session_state.finished = True
 
+        with col_flip:
+            if st.button("🔄 表面に戻す", use_container_width=True):
+                st.session_state.flipped = False
+                st.rerun()
         with col_good:
             if st.button("覚えた (Good)", use_container_width=True):
                 go_to_next(True)
