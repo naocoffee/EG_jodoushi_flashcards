@@ -196,15 +196,13 @@ TOTAL = len(flashcards)
 # =========================================================
 # ページ設定 & CSS
 # =========================================================
-st.set_page_config(page_title="助動詞フラッシュカード", page_icon="🗂️", layout="centered")
+st.set_page_config(page_title="助動詞フラッシュカード", layout="centered")
 
 st.markdown(
     """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Yomogi&family=Klee+One:wght@400;600&family=Kalam:wght@400;700&display=swap');
-
     html, body, [class*="css"] {
-        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
         font-size: 26px !important;
         font-weight: 700 !important;
     }
@@ -214,7 +212,7 @@ st.markdown(
     }
 
     h1, h2, h3, .stCaption, p, span, div, label {
-        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
         font-size: 26px !important;
         font-weight: 700 !important;
     }
@@ -318,7 +316,7 @@ st.markdown(
 
     /* --- ボタン：手描き風の枠線 --- */
     .stButton > button {
-        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
         font-size: 26px !important;
         font-weight: 700 !important;
         border-radius: 10px 14px 12px 16px / 14px 10px 16px 12px !important;
@@ -346,7 +344,7 @@ st.markdown(
 
     /* --- チェックボックス・キャプション文字 --- */
     .stCheckbox label, .stCaption, [data-testid="stCaptionContainer"] {
-        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
         font-size: 26px !important;
         font-weight: 700 !important;
         color: #4a3f2a !important;
@@ -354,7 +352,7 @@ st.markdown(
 
     /* --- st.metric の数値・ラベル --- */
     [data-testid="stMetricValue"], [data-testid="stMetricLabel"] {
-        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
         font-size: 26px !important;
         font-weight: 700 !important;
         color: #4a3f2a !important;
@@ -399,7 +397,7 @@ def reset_all():
 
 init_session()
 
-st.title("🗂️ 英語 助動詞フラッシュカード")
+st.title("英語 助動詞フラッシュカード")
 st.caption("助動詞・助動詞+have+PP の意味と用法をマスターしよう")
 
 # =========================================================
@@ -411,7 +409,7 @@ if not st.session_state.started:
     st.write(f"全 **{TOTAL}** 枚のカードが登録されています。")
     shuffle_option = st.checkbox("カードの順番をシャッフルする", value=True)
 
-    if st.button("▶ 学習をスタート", type="primary", use_container_width=True):
+    if st.button("学習をスタート", type="primary", use_container_width=True):
         order = list(range(TOTAL))
         if shuffle_option:
             random.shuffle(order)
@@ -429,14 +427,14 @@ if not st.session_state.started:
 # 結果画面
 # =========================================================
 elif st.session_state.finished:
-    st.success("🎉 全カードを学習しました！お疲れさまでした。")
+    st.success("全カードを学習しました！お疲れさまでした。")
 
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(
             f"""
             <div class="stat-box" style="background:#eef7e6; color:#3d6b1f; border-color:#6b8f3f;">
-                <div style="font-size:36px; font-weight:700;">✅ {st.session_state.good_count}</div>
+                <div style="font-size:36px; font-weight:700;">{st.session_state.good_count}</div>
                 <div>覚えた (Good)</div>
             </div>
             """,
@@ -446,7 +444,7 @@ elif st.session_state.finished:
         st.markdown(
             f"""
             <div class="stat-box" style="background:#fdeee0; color:#a5471f; border-color:#c0602c;">
-                <div style="font-size:36px; font-weight:700;">🔁 {st.session_state.review_count}</div>
+                <div style="font-size:36px; font-weight:700;">{st.session_state.review_count}</div>
                 <div>まだ不安 (Review)</div>
             </div>
             """,
@@ -456,14 +454,14 @@ elif st.session_state.finished:
     st.write("")
 
     if st.session_state.review_words:
-        st.subheader("📝 復習が必要なカード一覧")
+        st.subheader("復習が必要なカード一覧")
         for item in st.session_state.review_words:
             st.markdown(f"- **{item['word']}** ： {item['meaning']}")
     else:
         st.info("復習が必要なカードはありません。素晴らしい！")
 
     st.write("")
-    if st.button("🔄 最初からやり直す", type="primary", use_container_width=True):
+    if st.button("最初からやり直す", type="primary", use_container_width=True):
         reset_all()
         st.rerun()
 
@@ -508,7 +506,7 @@ else:
 
     # コントロールボタン
     if not st.session_state.flipped:
-        if st.button("🔄 カードをめくる（裏返す）", type="primary", use_container_width=True):
+        if st.button("カードをめくる（裏返す）", type="primary", use_container_width=True):
             st.session_state.flipped = True
             st.rerun()
     else:
@@ -529,11 +527,11 @@ else:
                 st.session_state.finished = True
 
         with col_good:
-            if st.button("✅ 覚えた (Good)", use_container_width=True):
+            if st.button("覚えた (Good)", use_container_width=True):
                 go_to_next(True)
                 st.rerun()
         with col_review:
-            if st.button("🔁 まだ不安 (Review)", use_container_width=True):
+            if st.button("まだ不安 (Review)", use_container_width=True):
                 go_to_next(False)
                 st.rerun()
 
