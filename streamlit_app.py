@@ -208,15 +208,12 @@ st.markdown(
     }
 
     .stApp {
-        background-color: #faf6ec;
-        background-image:
-            linear-gradient(#e8e0cc 1px, transparent 1px),
-            linear-gradient(90deg, #e8e0cc 1px, transparent 1px);
-        background-size: 28px 28px;
+        background-color: #ffffff;
     }
 
     h1, h2, h3, .stCaption, p, span, div, label {
         font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-weight: 700 !important;
     }
 
     h1 {
@@ -242,15 +239,15 @@ st.markdown(
 
     .front-card {
         background: #fffdf6;
-        color: #2e2a20;
+        color: #000000;
         border: 3px solid #4a3f2a;
         transform: rotate(0.8deg);
     }
 
     .back-card {
         background: #fff9e6;
-        color: #2e2a20;
-        border: 3px dashed #b5762c;
+        color: #000000;
+        border: 3px solid #b5762c;
         transform: rotate(-0.8deg);
     }
 
@@ -270,36 +267,39 @@ st.markdown(
         font-weight: 700;
         margin-bottom: 18px;
         line-height: 1.3;
+        color: #d32f2f;
         text-decoration: underline;
         text-decoration-style: wavy;
-        text-decoration-color: #4a3f2a;
+        text-decoration-color: #d32f2f;
         text-underline-offset: 6px;
     }
 
     .card-usage {
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         background: #ffe3b3;
-        color: #7a4a12;
+        color: #000000;
         display: inline-block;
         padding: 4px 18px;
         border-radius: 999px;
         margin-bottom: 16px;
-        border: 2px dashed #b5762c;
+        border: 2px solid #b5762c;
         transform: rotate(-2deg);
     }
 
     .card-example {
-        font-size: 19px;
+        font-size: 26px;
+        font-weight: 700;
         line-height: 1.7;
-        opacity: 0.9;
+        color: #000000;
+        opacity: 1;
     }
 
     .card-meaning {
         font-size: 30px;
         font-weight: 700;
         margin-bottom: 16px;
-        color: #b5762c;
+        color: #000000;
     }
 
     .stat-box {
