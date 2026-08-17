@@ -254,7 +254,7 @@ st.markdown(
     }
 
     .card-label {
-        font-size: 18px;
+        font-size: 20px;
         letter-spacing: 3px;
         opacity: 0.6;
         margin-bottom: 10px;
@@ -265,7 +265,7 @@ st.markdown(
     }
 
     .card-word {
-        font-size: 48px;
+        font-size: 100px;
         font-weight: 700;
         margin-bottom: 18px;
         line-height: 1.3;
@@ -298,7 +298,7 @@ st.markdown(
     }
 
     .card-meaning {
-        font-size: 42px;
+        font-size: 100px;
         font-weight: 700;
         margin-bottom: 16px;
         color: #000000;
