@@ -298,7 +298,7 @@ st.markdown(
         font-size: 42px;
         font-weight: 700;
         margin-bottom: 16px;
-        color: #000000;
+        color: #d32f2f;
     }
 
     .stat-box {
