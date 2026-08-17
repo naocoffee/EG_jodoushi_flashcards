@@ -13,7 +13,8 @@ flashcards = [
         "english_example": "She must have failed the exam.",
         "japanese_example": "彼女は試験に合格しなかったに違いない。",
         "aux_en": "must have",
-        "aux_ja": "に違いない"
+        "aux_ja": "に違いない",
+        "pp_en": "failed"
     },
     {
         "word": "should have done",
@@ -22,7 +23,8 @@ flashcards = [
         "english_example": "He should have arrived by now.",
         "japanese_example": "彼は今ごろもう到着したはずだ。",
         "aux_en": "should have",
-        "aux_ja": "はずだ"
+        "aux_ja": "はずだ",
+        "pp_en": "arrived"
     },
     {
         "word": "ought to have done",
@@ -31,7 +33,8 @@ flashcards = [
         "english_example": "He ought to have arrived by now.",
         "japanese_example": "彼は今ごろもう到着したはずだ。",
         "aux_en": "ought to have",
-        "aux_ja": "はずだ"
+        "aux_ja": "はずだ",
+        "pp_en": "arrived"
     },
     {
         "word": "cannot have done",
@@ -40,7 +43,8 @@ flashcards = [
         "english_example": "He cannot have said such a thing.",
         "japanese_example": "彼がそんなことを言ったはずがない。",
         "aux_en": "cannot have",
-        "aux_ja": "はずがない"
+        "aux_ja": "はずがない",
+        "pp_en": "said"
     },
     {
         "word": "couldn't have done",
@@ -49,7 +53,8 @@ flashcards = [
         "english_example": "He couldn't have said such a thing.",
         "japanese_example": "彼がそんなことを言ったはずがない。",
         "aux_en": "couldn't have",
-        "aux_ja": "はずがない"
+        "aux_ja": "はずがない",
+        "pp_en": "said"
     },
     {
         "word": "may have done",
@@ -58,7 +63,8 @@ flashcards = [
         "english_example": "He may have lost his way.",
         "japanese_example": "彼は道に迷ったかもしれない。",
         "aux_en": "may have",
-        "aux_ja": "かもしれない"
+        "aux_ja": "かもしれない",
+        "pp_en": "lost"
     },
     {
         "word": "might have done",
@@ -67,7 +73,8 @@ flashcards = [
         "english_example": "He might have lost his way.",
         "japanese_example": "彼は道に迷ったかもしれない。",
         "aux_en": "might have",
-        "aux_ja": "かもしれない"
+        "aux_ja": "かもしれない",
+        "pp_en": "lost"
     },
     {
         "word": "could have done",
@@ -76,7 +83,8 @@ flashcards = [
         "english_example": "He could have lost his way.",
         "japanese_example": "彼は道に迷ったかもしれない。",
         "aux_en": "could have",
-        "aux_ja": "かもしれない"
+        "aux_ja": "かもしれない",
+        "pp_en": "lost"
     },
     # --- 基本助動詞マスターシート ---
     {
@@ -565,6 +573,11 @@ else:
     highlighted_ja = card["japanese_example"].replace(
         card["aux_ja"], f'<span class="aux-highlight">{card["aux_ja"]}</span>'
     )
+    # 「助動詞 + have + PP」のカードは、PP（過去分詞）部分も赤色でハイライト
+    if "pp_en" in card:
+        highlighted_en = highlighted_en.replace(
+            card["pp_en"], f'<span class="aux-highlight">{card["pp_en"]}</span>'
+        )
 
     # 進捗バー
     progress_num = st.session_state.index + 1
