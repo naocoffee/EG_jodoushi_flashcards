@@ -31,7 +31,7 @@ flashcards = [
     {
         "word": "should have done",
         "usage": "過去への後悔・非難",
-        "meaning": "～すべきだったのに（しなかった）",
+        "meaning": "～すべきだったのに",
         "english_example": "I should have studied harder.",
         "japanese_example": "もっと勉強しておくべきだった。",
         "aux_en": "should have",
