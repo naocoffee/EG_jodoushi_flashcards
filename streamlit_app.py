@@ -283,7 +283,7 @@ st.markdown(
     }
 
     .card-example {
-        font-size: 18px;
+        font-size: 27px;
         font-weight: 700;
         line-height: 1.7;
         color: #000000;
