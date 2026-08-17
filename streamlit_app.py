@@ -630,6 +630,11 @@ else:
             st.rerun()
     else:
         st.write("この助動詞の意味、覚えていましたか？")
+
+        if st.button("🔄 表面に戻す（もう一度めくる）", use_container_width=True):
+            st.session_state.flipped = False
+            st.rerun()
+
         col_good, col_review = st.columns(2)
 
         def go_to_next(is_good):
