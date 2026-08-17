@@ -11,56 +11,72 @@ flashcards = [
         "usage": "過去のことへの確信",
         "meaning": "～したに違いない",
         "english_example": "She must have failed the exam.",
-        "japanese_example": "彼女は試験に合格しなかったに違いない。"
+        "japanese_example": "彼女は試験に合格しなかったに違いない。",
+        "aux_en": "must have",
+        "aux_ja": "に違いない"
     },
     {
         "word": "should have done",
         "usage": "過去のことへの推量",
         "meaning": "～したはずだ",
         "english_example": "He should have arrived by now.",
-        "japanese_example": "彼は今ごろもう到着したはずだ。"
+        "japanese_example": "彼は今ごろもう到着したはずだ。",
+        "aux_en": "should have",
+        "aux_ja": "はずだ"
     },
     {
         "word": "ought to have done",
         "usage": "過去のことへの推量",
         "meaning": "～したはずだ",
         "english_example": "He ought to have arrived by now.",
-        "japanese_example": "彼は今ごろもう到着したはずだ。"
+        "japanese_example": "彼は今ごろもう到着したはずだ。",
+        "aux_en": "ought to have",
+        "aux_ja": "はずだ"
     },
     {
         "word": "cannot have done",
         "usage": "過去のことへの確信（否定）",
         "meaning": "～したはずがない",
         "english_example": "He cannot have said such a thing.",
-        "japanese_example": "彼がそんなことを言ったはずがない。"
+        "japanese_example": "彼がそんなことを言ったはずがない。",
+        "aux_en": "cannot have",
+        "aux_ja": "はずがない"
     },
     {
         "word": "couldn't have done",
         "usage": "過去のことへの確信（否定）",
         "meaning": "～したはずがない",
         "english_example": "He couldn't have said such a thing.",
-        "japanese_example": "彼がそんなことを言ったはずがない。"
+        "japanese_example": "彼がそんなことを言ったはずがない。",
+        "aux_en": "couldn't have",
+        "aux_ja": "はずがない"
     },
     {
         "word": "may have done",
         "usage": "過去のことへの推量",
         "meaning": "～したかもしれない",
         "english_example": "He may have lost his way.",
-        "japanese_example": "彼は道に迷ったかもしれない。"
+        "japanese_example": "彼は道に迷ったかもしれない。",
+        "aux_en": "may have",
+        "aux_ja": "かもしれない"
     },
     {
         "word": "might have done",
         "usage": "過去のことへの推量",
         "meaning": "～したかもしれない",
         "english_example": "He might have lost his way.",
-        "japanese_example": "彼は道に迷ったかもしれない。"
+        "japanese_example": "彼は道に迷ったかもしれない。",
+        "aux_en": "might have",
+        "aux_ja": "かもしれない"
     },
     {
         "word": "could have done",
         "usage": "過去のことへの推量",
         "meaning": "～したかもしれない",
         "english_example": "He could have lost his way.",
-        "japanese_example": "彼は道に迷ったかもしれない。"
+        "japanese_example": "彼は道に迷ったかもしれない。",
+        "aux_en": "could have",
+        "aux_ja": "かもしれない"
     },
     # --- 基本助動詞マスターシート ---
     {
@@ -68,133 +84,171 @@ flashcards = [
         "usage": "能力・可能",
         "meaning": "～することができる",
         "english_example": "She can play the piano.",
-        "japanese_example": "彼女はピアノが弾ける。"
+        "japanese_example": "彼女はピアノが弾ける。",
+        "aux_en": "can",
+        "aux_ja": "弾ける"
     },
     {
         "word": "can",
         "usage": "許可",
         "meaning": "～してもよい",
         "english_example": "You can use my cell phone.",
-        "japanese_example": "私の携帯電話を使ってもいいですよ。"
+        "japanese_example": "私の携帯電話を使ってもいいですよ。",
+        "aux_en": "can",
+        "aux_ja": "てもいいです"
     },
     {
         "word": "can",
         "usage": "依頼",
         "meaning": "～してくれますか",
         "english_example": "Can you open the door?",
-        "japanese_example": "ドアを開けてくれますか。"
+        "japanese_example": "ドアを開けてくれますか。",
+        "aux_en": "Can",
+        "aux_ja": "てくれますか"
     },
     {
         "word": "can",
         "usage": "推量（可能性）",
         "meaning": "～はあり得る",
         "english_example": "An accident can happen at any time.",
-        "japanese_example": "事故はいつでも起こり得る。"
+        "japanese_example": "事故はいつでも起こり得る。",
+        "aux_en": "can",
+        "aux_ja": "得る"
     },
     {
         "word": "can't",
         "usage": "否定の推量",
         "meaning": "～のはずがない",
         "english_example": "The rumor can't be true.",
-        "japanese_example": "そのうわさが本当であるはずがない。"
+        "japanese_example": "そのうわさが本当であるはずがない。",
+        "aux_en": "can't",
+        "aux_ja": "はずがない"
     },
     {
         "word": "may",
         "usage": "許可",
         "meaning": "～してもよい",
         "english_example": "May I ask you a question?",
-        "japanese_example": "質問をしてもよろしいですか。"
+        "japanese_example": "質問をしてもよろしいですか。",
+        "aux_en": "May",
+        "aux_ja": "てもよろしいです"
     },
     {
         "word": "may",
         "usage": "推量",
         "meaning": "～かもしれない",
         "english_example": "He may be at home.",
-        "japanese_example": "彼は家にいるかもしれない。"
+        "japanese_example": "彼は家にいるかもしれない。",
+        "aux_en": "may",
+        "aux_ja": "かもしれない"
     },
     {
         "word": "must",
         "usage": "義務・必要",
         "meaning": "～しなければならない",
         "english_example": "You must get some sleep.",
-        "japanese_example": "あなたは少し寝ないといけません。"
+        "japanese_example": "あなたは少し寝ないといけません。",
+        "aux_en": "must",
+        "aux_ja": "ないといけません"
     },
     {
         "word": "must",
         "usage": "推量（確信）",
         "meaning": "～に違いない",
         "english_example": "He must be tired.",
-        "japanese_example": "彼は疲れているに違いない。"
+        "japanese_example": "彼は疲れているに違いない。",
+        "aux_en": "must",
+        "aux_ja": "に違いない"
     },
     {
         "word": "must not",
         "usage": "禁止",
         "meaning": "～してはいけない",
         "english_example": "You must not take pictures here.",
-        "japanese_example": "ここで写真を撮ってはいけません。"
+        "japanese_example": "ここで写真を撮ってはいけません。",
+        "aux_en": "must not",
+        "aux_ja": "てはいけません"
     },
     {
         "word": "should (ought to)",
         "usage": "義務・助言",
         "meaning": "～すべきだ",
         "english_example": "You should be more careful.",
-        "japanese_example": "君はもっと気を付けるべきだ。"
+        "japanese_example": "君はもっと気を付けるべきだ。",
+        "aux_en": "should",
+        "aux_ja": "べきだ"
     },
     {
         "word": "should (ought to)",
         "usage": "推量",
         "meaning": "～のはずだ",
         "english_example": "They should arrive here soon.",
-        "japanese_example": "彼らはもうすぐここに着くはずだ。"
+        "japanese_example": "彼らはもうすぐここに着くはずだ。",
+        "aux_en": "should",
+        "aux_ja": "はずだ"
     },
     {
         "word": "will",
         "usage": "未来の予測",
         "meaning": "～だろう",
         "english_example": "It will rain this afternoon.",
-        "japanese_example": "今日の午後は雨が降るだろう。"
+        "japanese_example": "今日の午後は雨が降るだろう。",
+        "aux_en": "will",
+        "aux_ja": "だろう"
     },
     {
         "word": "will",
         "usage": "意志",
         "meaning": "～するつもりだ",
         "english_example": "I'll do my homework after dinner.",
-        "japanese_example": "私は夕食後に宿題をするつもりです。"
+        "japanese_example": "私は夕食後に宿題をするつもりです。",
+        "aux_en": "'ll",
+        "aux_ja": "つもりです"
     },
     {
         "word": "will / would",
         "usage": "過去の習慣",
         "meaning": "よく～したものだ",
         "english_example": "We would often go to the movies.",
-        "japanese_example": "私たちはよく映画を見に行ったものだ。"
+        "japanese_example": "私たちはよく映画を見に行ったものだ。",
+        "aux_en": "would",
+        "aux_ja": "ものだ"
     },
     {
         "word": "shall I ～?",
         "usage": "申し出",
         "meaning": "(私が)～しましょうか",
         "english_example": "Shall I open the window?",
-        "japanese_example": "窓を開けましょうか。"
+        "japanese_example": "窓を開けましょうか。",
+        "aux_en": "Shall I",
+        "aux_ja": "ましょうか"
     },
     {
         "word": "shall we ～?",
         "usage": "提案",
         "meaning": "(一緒に)～しませんか",
         "english_example": "Shall we go to a movie tomorrow?",
-        "japanese_example": "明日、映画に行きませんか。"
+        "japanese_example": "明日、映画に行きませんか。",
+        "aux_en": "Shall we",
+        "aux_ja": "ませんか"
     },
     {
         "word": "used to",
         "usage": "過去の習慣",
         "meaning": "(以前は)～したものだ",
         "english_example": "I used to walk to school with my friends.",
-        "japanese_example": "私は(以前は)友達と歩いて登校したものだ。"
+        "japanese_example": "私は(以前は)友達と歩いて登校したものだ。",
+        "aux_en": "used to",
+        "aux_ja": "ものだ"
     },
     {
         "word": "had better",
         "usage": "命令・忠告",
         "meaning": "～しなさい，～するのがよい",
         "english_example": "You had better see a doctor.",
-        "japanese_example": "医者に診てもらいなさい。"
+        "japanese_example": "医者に診てもらいなさい。",
+        "aux_en": "had better",
+        "aux_ja": "なさい"
     }
 ]
 
@@ -295,6 +349,10 @@ st.markdown(
         line-height: 1.7;
         color: #000000;
         opacity: 1;
+    }
+
+    .aux-highlight {
+        color: #d32f2f;
     }
 
     .card-meaning {
@@ -500,6 +558,14 @@ else:
     current_idx = st.session_state.order[st.session_state.index]
     card = flashcards[current_idx]
 
+    # 例文中の助動詞部分を赤色でハイライト
+    highlighted_en = card["english_example"].replace(
+        card["aux_en"], f'<span class="aux-highlight">{card["aux_en"]}</span>'
+    )
+    highlighted_ja = card["japanese_example"].replace(
+        card["aux_ja"], f'<span class="aux-highlight">{card["aux_ja"]}</span>'
+    )
+
     # 進捗バー
     progress_num = st.session_state.index + 1
     st.progress(progress_num / TOTAL)
@@ -514,7 +580,7 @@ else:
             <div class="flash-card front-card">
                 <div class="card-label">Question</div>
                 <div class="card-word">{card['word']}</div>
-                <div class="card-example">{card['english_example']}</div>
+                <div class="card-example">{highlighted_en}</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -526,7 +592,7 @@ else:
                 <div class="card-label">Answer</div>
                 <div class="card-usage">{card['usage']}</div>
                 <div class="card-meaning">{card['meaning']}</div>
-                <div class="card-example">{card['japanese_example']}</div>
+                <div class="card-example">{highlighted_ja}</div>
             </div>
             """,
             unsafe_allow_html=True,
