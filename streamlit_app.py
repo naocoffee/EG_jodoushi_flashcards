@@ -267,10 +267,6 @@ st.markdown(
         margin-bottom: 18px;
         line-height: 1.3;
         color: #d32f2f;
-        text-decoration: underline;
-        text-decoration-style: wavy;
-        text-decoration-color: #d32f2f;
-        text-underline-offset: 6px;
     }
 
     .card-usage {
