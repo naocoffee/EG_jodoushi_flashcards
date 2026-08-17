@@ -14,10 +14,17 @@ flashcards = [
         "japanese_example": "彼女は試験に合格しなかったに違いない。"
     },
     {
-        "word": "should have done / ought to have done",
+        "word": "should have done",
         "usage": "過去のことへの推量",
         "meaning": "～したはずだ",
-        "english_example": "He should have arrived by now. / He ought to have arrived by now.",
+        "english_example": "He should have arrived by now.",
+        "japanese_example": "彼は今ごろもう到着したはずだ。"
+    },
+    {
+        "word": "ought to have done",
+        "usage": "過去のことへの推量",
+        "meaning": "～したはずだ",
+        "english_example": "He ought to have arrived by now.",
         "japanese_example": "彼は今ごろもう到着したはずだ。"
     },
     {
