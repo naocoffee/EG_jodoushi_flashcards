@@ -240,14 +240,14 @@ st.markdown(
     }
 
     .front-card {
-        background: #fffdf6;
+        background: #ffffff;
         color: #000000;
         border: 3px solid #4a3f2a;
         transform: rotate(0.8deg);
     }
 
     .back-card {
-        background: #fff9e6;
+        background: #ffffff;
         color: #000000;
         border: 3px solid #b5762c;
         transform: rotate(-0.8deg);
@@ -290,7 +290,7 @@ st.markdown(
     }
 
     .card-example {
-        font-size: 26px;
+        font-size: 38px;
         font-weight: 700;
         line-height: 1.7;
         color: #000000;
