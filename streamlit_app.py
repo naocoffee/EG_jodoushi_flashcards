@@ -262,7 +262,7 @@ st.markdown(
     }
 
     .card-word {
-        font-size: 34px;
+        font-size: 51px;
         font-weight: 700;
         margin-bottom: 18px;
         line-height: 1.3;
@@ -295,7 +295,7 @@ st.markdown(
     }
 
     .card-meaning {
-        font-size: 28px;
+        font-size: 42px;
         font-weight: 700;
         margin-bottom: 16px;
         color: #000000;
@@ -313,6 +313,7 @@ st.markdown(
     /* --- ボタン：手描き風の枠線 --- */
     .stButton > button {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
+        font-size: 16px !important;
         font-weight: 700 !important;
         border-radius: 10px 14px 12px 16px / 14px 10px 16px 12px !important;
         border: 3px solid #4a3f2a !important;
@@ -337,11 +338,27 @@ st.markdown(
         background-color: #b5762c !important;
     }
 
-    /* --- チェックボックス・キャプション文字 --- */
-    .stCheckbox label, .stCaption, [data-testid="stCaptionContainer"] {
+    /* --- チェックボックス文字 --- */
+    .stCheckbox label {
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #4a3f2a !important;
+    }
+
+    /* --- キャプション文字 --- */
+    .stCaption, [data-testid="stCaptionContainer"] {
         font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
         font-weight: 700 !important;
         color: #4a3f2a !important;
+    }
+
+    /* --- 「全◯枚のカードが登録されています」等の基準テキスト --- */
+    .base-text {
+        font-family: "Yu Gothic", "游ゴシック", "Yu Gothic Medium", "游ゴシック体", sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #000000;
     }
 
     /* --- st.metric の数値・ラベル --- */
@@ -411,7 +428,10 @@ st.markdown(
 if not st.session_state.started:
     st.write("")
     st.subheader("学習を始めましょう")
-    st.write(f"全 **{TOTAL}** 枚のカードが登録されています。")
+    st.markdown(
+        f'<p class="base-text">全 <strong>{TOTAL}</strong> 枚のカードが登録されています。</p>',
+        unsafe_allow_html=True,
+    )
     shuffle_option = st.checkbox("カードの順番をシャッフルする", value=True)
 
     if st.button("学習をスタート", type="primary", use_container_width=True):
@@ -550,4 +570,3 @@ else:
     if st.button("終了する", use_container_width=True):
         reset_all()
         st.rerun()
-        
