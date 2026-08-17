@@ -14,7 +14,8 @@ flashcards = [
         "japanese_example": "彼女は試験に合格しなかったに違いない。",
         "aux_en": "must have",
         "aux_ja": "に違いない",
-        "pp_en": "failed"
+        "pp_en": "failed",
+        "pp_ja": "合格しなかった"
     },
     {
         "word": "should have done",
@@ -24,7 +25,8 @@ flashcards = [
         "japanese_example": "彼は今ごろもう到着したはずだ。",
         "aux_en": "should have",
         "aux_ja": "はずだ",
-        "pp_en": "arrived"
+        "pp_en": "arrived",
+        "pp_ja": "到着した"
     },
     {
         "word": "ought to have done",
@@ -34,7 +36,8 @@ flashcards = [
         "japanese_example": "彼は今ごろもう到着したはずだ。",
         "aux_en": "ought to have",
         "aux_ja": "はずだ",
-        "pp_en": "arrived"
+        "pp_en": "arrived",
+        "pp_ja": "到着した"
     },
     {
         "word": "cannot have done",
@@ -44,7 +47,8 @@ flashcards = [
         "japanese_example": "彼がそんなことを言ったはずがない。",
         "aux_en": "cannot have",
         "aux_ja": "はずがない",
-        "pp_en": "said"
+        "pp_en": "said",
+        "pp_ja": "言った"
     },
     {
         "word": "couldn't have done",
@@ -54,7 +58,8 @@ flashcards = [
         "japanese_example": "彼がそんなことを言ったはずがない。",
         "aux_en": "couldn't have",
         "aux_ja": "はずがない",
-        "pp_en": "said"
+        "pp_en": "said",
+        "pp_ja": "言った"
     },
     {
         "word": "may have done",
@@ -64,7 +69,8 @@ flashcards = [
         "japanese_example": "彼は道に迷ったかもしれない。",
         "aux_en": "may have",
         "aux_ja": "かもしれない",
-        "pp_en": "lost"
+        "pp_en": "lost",
+        "pp_ja": "迷った"
     },
     {
         "word": "might have done",
@@ -74,7 +80,8 @@ flashcards = [
         "japanese_example": "彼は道に迷ったかもしれない。",
         "aux_en": "might have",
         "aux_ja": "かもしれない",
-        "pp_en": "lost"
+        "pp_en": "lost",
+        "pp_ja": "迷った"
     },
     {
         "word": "could have done",
@@ -84,7 +91,8 @@ flashcards = [
         "japanese_example": "彼は道に迷ったかもしれない。",
         "aux_en": "could have",
         "aux_ja": "かもしれない",
-        "pp_en": "lost"
+        "pp_en": "lost",
+        "pp_ja": "迷った"
     },
     # --- 基本助動詞マスターシート ---
     {
@@ -577,6 +585,10 @@ else:
     if "pp_en" in card:
         highlighted_en = highlighted_en.replace(
             card["pp_en"], f'<span class="aux-highlight">{card["pp_en"]}</span>'
+        )
+    if "pp_ja" in card:
+        highlighted_ja = highlighted_ja.replace(
+            card["pp_ja"], f'<span class="aux-highlight">{card["pp_ja"]}</span>'
         )
 
     # 進捗バー
