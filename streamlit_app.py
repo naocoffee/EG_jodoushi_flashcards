@@ -205,6 +205,8 @@ st.markdown(
 
     html, body, [class*="css"] {
         font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-size: 26px !important;
+        font-weight: 700 !important;
     }
 
     .stApp {
@@ -213,11 +215,13 @@ st.markdown(
 
     h1, h2, h3, .stCaption, p, span, div, label {
         font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-size: 26px !important;
         font-weight: 700 !important;
     }
 
     h1 {
         color: #4a3f2a !important;
+        font-size: 40px !important;
         transform: rotate(-1deg);
     }
 
@@ -252,7 +256,7 @@ st.markdown(
     }
 
     .card-label {
-        font-size: 15px;
+        font-size: 26px;
         letter-spacing: 3px;
         opacity: 0.6;
         margin-bottom: 10px;
@@ -275,7 +279,7 @@ st.markdown(
     }
 
     .card-usage {
-        font-size: 16px;
+        font-size: 26px;
         font-weight: 700;
         background: #ffe3b3;
         color: #000000;
@@ -306,6 +310,7 @@ st.markdown(
         text-align: center;
         border-radius: 12px 16px 14px 18px / 16px 12px 18px 14px;
         padding: 20px 10px;
+        font-size: 26px;
         font-weight: 700;
         border: 3px solid #4a3f2a;
         transform: rotate(-1deg);
@@ -314,7 +319,8 @@ st.markdown(
     /* --- ボタン：手描き風の枠線 --- */
     .stButton > button {
         font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
-        font-weight: 700;
+        font-size: 26px !important;
+        font-weight: 700 !important;
         border-radius: 10px 14px 12px 16px / 14px 10px 16px 12px !important;
         border: 3px solid #4a3f2a !important;
         background: #fffdf6 !important;
@@ -341,6 +347,16 @@ st.markdown(
     /* --- チェックボックス・キャプション文字 --- */
     .stCheckbox label, .stCaption, [data-testid="stCaptionContainer"] {
         font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-size: 26px !important;
+        font-weight: 700 !important;
+        color: #4a3f2a !important;
+    }
+
+    /* --- st.metric の数値・ラベル --- */
+    [data-testid="stMetricValue"], [data-testid="stMetricLabel"] {
+        font-family: 'Klee One', 'Yomogi', 'Kalam', cursive !important;
+        font-size: 26px !important;
+        font-weight: 700 !important;
         color: #4a3f2a !important;
     }
     </style>
@@ -420,7 +436,7 @@ elif st.session_state.finished:
         st.markdown(
             f"""
             <div class="stat-box" style="background:#eef7e6; color:#3d6b1f; border-color:#6b8f3f;">
-                <div style="font-size:36px;">✅ {st.session_state.good_count}</div>
+                <div style="font-size:36px; font-weight:700;">✅ {st.session_state.good_count}</div>
                 <div>覚えた (Good)</div>
             </div>
             """,
@@ -430,7 +446,7 @@ elif st.session_state.finished:
         st.markdown(
             f"""
             <div class="stat-box" style="background:#fdeee0; color:#a5471f; border-color:#c0602c;">
-                <div style="font-size:36px;">🔁 {st.session_state.review_count}</div>
+                <div style="font-size:36px; font-weight:700;">🔁 {st.session_state.review_count}</div>
                 <div>まだ不安 (Review)</div>
             </div>
             """,
